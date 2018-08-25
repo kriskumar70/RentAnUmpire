@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="RentalUmpire.Services\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

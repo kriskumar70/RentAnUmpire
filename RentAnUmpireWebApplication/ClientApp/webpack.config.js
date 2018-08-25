@@ -3,17 +3,21 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/main.ts',
+
   module: {
     rules: [
-      {
-        test: /\.ts$/,
-        use: ['ts-loader', 'angular2-template-loader'],
-        exclude: /node_modules/
-      },
-      {
-        test: /\.(html|css)$/,
-        loader: 'raw-loader'
-      },
+        {
+            test: /\.ts$/,
+            use: ['ts-loader', 'angular2-template-loader'],
+            exclude: /node_modules/
+        },
+        {
+            test: /\.(html|css)$/,
+            include: [/node_modules.jqwidgets-framework/, /ClientApp/],
+           // path.resolve(__dirname, , './node_modules/jqwidgets-framework/',
+            loader: 'raw-loader'
+            // loader: `babel-loader?${JSON.stringify(babelConfig)}`
+        }
     ]
   },
   resolve: {

@@ -21,6 +21,7 @@ var _services_1 = require("./_services");
 var home_1 = require("./home");
 var login_1 = require("./login");
 var register_1 = require("./register");
+var umpiredetails_1 = require("./umpire-details");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -37,6 +38,7 @@ var AppModule = /** @class */ (function () {
                 _directives_1.AlertComponent,
                 home_1.HomeComponent,
                 login_1.LoginComponent,
+                umpiredetails_1.UmpireDetailsComponent,
                 register_1.RegisterComponent
             ],
             providers: [

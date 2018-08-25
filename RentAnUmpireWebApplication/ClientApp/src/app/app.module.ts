@@ -16,20 +16,27 @@ import { AlertService, AuthenticationService, UserService } from './_services';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
+import { Ng2SmartTableModule } from 'ng2-smart-table';  
+import { Ng2CompleterModule } from "ng2-completer";
+import { UmpireDetailsComponent } from './umpire-details';
 
 @NgModule({
     imports: [
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        routing
+        routing,
+        Ng2SmartTableModule,
+        Ng2CompleterModule
+
     ],
     declarations: [
         AppComponent,
         AlertComponent,
         HomeComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        UmpireDetailsComponent
     ],
     providers: [
         AuthGuard,
