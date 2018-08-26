@@ -21,7 +21,9 @@ var _services_1 = require("./_services");
 var home_1 = require("./home");
 var login_1 = require("./login");
 var register_1 = require("./register");
-var umpiredetails_1 = require("./umpire-details");
+var ng2_smart_table_1 = require("ng2-smart-table");
+var ng2_completer_1 = require("ng2-completer");
+var umpire_details_1 = require("./umpire-details");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -31,15 +33,17 @@ var AppModule = /** @class */ (function () {
                 platform_browser_1.BrowserModule,
                 forms_1.ReactiveFormsModule,
                 http_1.HttpClientModule,
-                app_routing_1.routing
+                app_routing_1.routing,
+                ng2_smart_table_1.Ng2SmartTableModule,
+                ng2_completer_1.Ng2CompleterModule
             ],
             declarations: [
                 app_component_1.AppComponent,
                 _directives_1.AlertComponent,
                 home_1.HomeComponent,
                 login_1.LoginComponent,
-                umpiredetails_1.UmpireDetailsComponent,
-                register_1.RegisterComponent
+                register_1.RegisterComponent,
+                umpire_details_1.UmpireDetailsComponent
             ],
             providers: [
                 _guards_1.AuthGuard,
