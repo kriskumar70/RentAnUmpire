@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
 using RentAnUmpireWebApi.ViewModels;
 using SendGrid;
 using SendGrid.Helpers.Mail;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
 
 namespace RentAnUmpireWebApi.Controllers
 {
@@ -35,6 +33,25 @@ namespace RentAnUmpireWebApi.Controllers
 
             var response = await client.SendEmailAsync(msg);
             return Ok(response);
+        }
+
+        [HttpPost]
+        [Route("sentSms")]
+        public IActionResult SendSmsNotification(SmsViewModel smsViewModel)
+        {
+            // Retrieve the API key from the environment variables. See the project README for more info about setting this up.
+
+            string acccountSid = ConfigurationManager.AppSetting["Tvillio:accountSid"];
+            string authToken = ConfigurationManager.AppSetting["Tvillio:authToken"];
+
+            TwilioClient.Init(acccountSid, authToken);
+
+            var message = MessageResource.Create(
+                body: smsViewModel.Message,
+                from: new PhoneNumber(smsViewModel.FromNumber),
+                to: new PhoneNumber(smsViewModel.ToNumber)
+            );
+            return Ok(message.Sid);
         }
     }
 }

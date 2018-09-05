@@ -18,6 +18,14 @@ namespace RentAnUmpireWebApi.ViewModels
         public string Subject { get; set; }
 
     }
+    public class SmsViewModel
+    {
+        public string FromNumber { get; set; }
+        public string ToNumber { get; set; }
+        public string Message { get; set; }
+
+
+    }
     public class Attachment
     {
         
