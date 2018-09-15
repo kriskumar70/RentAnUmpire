@@ -20,7 +20,7 @@ namespace RentAnUmpireWebApi.RentalUmpire.Services
     {
         private DataContext _context;
 
-        public UserService(DataContext context)
+        public UserService(DataContext context) 
         {
             _context = context;
         }

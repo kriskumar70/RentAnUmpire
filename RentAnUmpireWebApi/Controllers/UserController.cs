@@ -18,9 +18,9 @@ using RentAnUmpireWebApi.RentalUmpire.Services;
 
 namespace RentAnUmpireWebApi.Controllers
 {
-    [Authorize]
-
-    [Route("[controller]")]
+   // [Authorize]
+   
+    [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;

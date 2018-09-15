@@ -11,12 +11,12 @@ var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/common/http");
 // used to create fake backend
-var _helpers_1 = require("./_helpers");
+// import { fakeBackendProvider } from './_helpers';
 var app_component_1 = require("./app.component");
 var app_routing_1 = require("./app.routing");
 var _directives_1 = require("./_directives");
 var _guards_1 = require("./_guards");
-var _helpers_2 = require("./_helpers");
+var _helpers_1 = require("./_helpers");
 var _services_1 = require("./_services");
 var home_1 = require("./home");
 var login_1 = require("./login");
@@ -50,10 +50,10 @@ var AppModule = /** @class */ (function () {
                 _services_1.AlertService,
                 _services_1.AuthenticationService,
                 _services_1.UserService,
-                { provide: http_1.HTTP_INTERCEPTORS, useClass: _helpers_2.JwtInterceptor, multi: true },
-                { provide: http_1.HTTP_INTERCEPTORS, useClass: _helpers_2.ErrorInterceptor, multi: true },
+                { provide: http_1.HTTP_INTERCEPTORS, useClass: _helpers_1.JwtInterceptor, multi: true },
+                { provide: http_1.HTTP_INTERCEPTORS, useClass: _helpers_1.ErrorInterceptor, multi: true }
                 // provider used to create fake backend
-                _helpers_1.fakeBackendProvider
+                // fakeBackendProvider
             ],
             bootstrap: [app_component_1.AppComponent]
         })

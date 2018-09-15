@@ -22,6 +22,7 @@ var UserService = /** @class */ (function () {
         return this.http.get(config.apiUrl + "/users/" + id);
     };
     UserService.prototype.register = function (user) {
+        debugger;
         return this.http.post(config.apiUrl + "/users/register", user);
     };
     UserService.prototype.update = function (user) {

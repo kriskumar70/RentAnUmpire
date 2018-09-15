@@ -34,8 +34,17 @@ namespace RentAnUmpireWebApi
             services.AddCors();
             services.AddMvc();
             services.AddAutoMapper();
-            services.AddDbContext<DallasCrickContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("UmpireDatabase")));
+            // services.AddDbContext<DataContext>(x => x.UseInMemoryDatabase("TestDb"));
+            var connection = @"Server=tcp:sql2k012.database.windows.net,1433;Initial Catalog=UmpireDatabase;Persist Security Info=False;User ID=dallascrick;Password=Snoopy123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            services.AddDbContext<DataContext>
+                (options => options.UseSqlServer(connection));
+
+            //services.AddScoped<IUserService, UserService>();
+            //services.AddDbContext<DallasCrickContext>(options =>
+            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            // services.AddScoped<DbContext, DataContext>;
+            // services.AddScoped(typeof(DbContext), typeof(DataContext));
+            //services.AddScoped<DbContext>(sp => sp.GetService<DataContext>());
             //var connection = @"Server=tcp:sql2k802.discountasp.net;Initial Catalog=SQL2008_739130_dallascrick;User ID=SQL2008_739130_dallascrick_user;Password=dcl650;";
             //services.AddDbContext<DallasCrickContext>(options => options.UseSqlServer(connection));
 
@@ -81,6 +90,10 @@ namespace RentAnUmpireWebApi
 
             // configure DI for application services
             services.AddScoped<IUserService, UserService>();
+        
+            // container = services.BuildServiceProvider(); //container is a global variable。
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
